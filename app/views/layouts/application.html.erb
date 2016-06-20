@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/head' %>
+
+<body>
+	<div class="container">
+		<%= render 'layouts/nav' %>
+
+		<div class="flash-notices">
+		  <p class="notice text-info"><%= notice %></p>
+		  <p class="alert text-danger"><%= alert %></p>
+		</div><!-- flash-notices -->
+
+		<%= yield %>
+
+	</div><!-- container -->
+</body>
+
+</html>
