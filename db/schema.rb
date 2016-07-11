@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706122405) do
+ActiveRecord::Schema.define(version: 20160708100043) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20160706122405) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "price"
-    t.string   "color"
+    t.string   "colour"
   end
 
   create_table "users", force: true do |t|
