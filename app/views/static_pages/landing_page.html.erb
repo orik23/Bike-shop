@@ -6,6 +6,10 @@
     <% end %>
   </ol>
 
+  <div class="featured-product">
+  <h2>Featured Product:</h2>
+  <%= @featured_product.name %>
+  </div>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @products.each do |product| %>

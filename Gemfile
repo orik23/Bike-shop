@@ -38,6 +38,7 @@ group :development, :test do
 	gem 'guard-rspec', require: false
 	gem 'spork-rails'
 	gem 'guard-spork'
+	gem 'pry-rails'
 end
 
 group :production do
