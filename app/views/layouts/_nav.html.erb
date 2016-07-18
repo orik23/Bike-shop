@@ -20,6 +20,7 @@
 
       <!-- Search Form -->
 		  <%= form_tag("/products", method: "get", class: "navbar-form navbar-left") do %>
+        <%= label_tag(:q, "Search for:") %>
 		  	<div class="form-group">
 				  <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
 				</div>

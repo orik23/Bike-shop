@@ -4,8 +4,12 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    @products = Product.all
-    respond_with(@products)
+    if params[:q]
+      search_term = params[:q]
+      @products = Product.where("name LIKE ?", "%#{search_term}")
+    else
+      @products = Product.all
+    end
   end
 
   def show
