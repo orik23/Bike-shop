@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 	#skip_before_filter  :verify_authenticity_token MAKES it vulnurable for attacks
 	protect_from_forgery with: :null_session
 	respond_to :json, :html
+	before_filter :authenticate_user!
 
 	def index
 		@orders = Order.all.to_json(:include => [{:product => {:only => :name}}, {:user => {:only => :email}}])

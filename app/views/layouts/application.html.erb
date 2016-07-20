@@ -14,29 +14,44 @@
 </head>
 
 <body>
-<div class="page-wrap">
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-        <a class="navbar-brand" href="#">Biking around Berlin</a>
+  <div class="page-wrap">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Biking around Berlin</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="../products/index.html.erb">Products</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+            <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            <% else %>
+              <%= link_to('Login', new_user_session_path) %>
+            <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="../products/index.html.erb">Products</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
-<%= yield %>
-<footer class="site-footer">&copy;2015 Bike Berlin</footer>
+    </nav>
+  </div>
+  <% if notice %>
+    <p id="notice" class="alert alert-info"><%= notice %>Hello and Welcome!</p>
+  <% end %>
+  <% if alert %>
+    <p id="alert" class="alert alert-info"><%= notice %>This is an alert but not worry</p>
+  <% end %>
+  <%= yield %>
+  <footer class="site-footer">&copy;2015 Bike Berlin</footer>
 </body>
 </html>
