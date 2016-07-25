@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
   def show
     respond_with(@product)
+    @comments = @product.comments.order("created_at DESC")
   end
 
   def new
