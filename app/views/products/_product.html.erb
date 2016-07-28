@@ -8,7 +8,7 @@
       <h2><%= link_to product.name, product %></h2>
       <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
       <p><%= product.description %></p>
-      <p><b>Color:</b> <%= product.color %></p>
+      <p><b>Color:</b> <%= product.colour %></p>
       <span class="lead">Only <%= number_to_currency(product.price) %></span>
       <hr>
     </div><!-- col -->
