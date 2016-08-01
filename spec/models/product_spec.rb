@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 describe Product do
-	when the product has comments do
-	end 
-
 	before do
 		@product = Product.create!(name: "race bike")
 		@user = User.create!(email: hello@hello.com, password: 1234567a)
