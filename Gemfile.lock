@@ -264,7 +264,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.0)
   rails_12factor
-  rspec-rails (~> 3.0)
+  rspec-rails (~> 3.5)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spork-rails
