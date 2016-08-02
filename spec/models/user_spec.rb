@@ -8,4 +8,8 @@ describe User, :type => :model do
     expect(User.all.order("last_name")).to eq([chelimsky, lindeman])
   end
 
+  it "should not validate users without an email address" do
+    @user = FactoryGirl.build(:user, email: "not_an_email")
+    expect(@user).to_not be_valid
+  end
 end
