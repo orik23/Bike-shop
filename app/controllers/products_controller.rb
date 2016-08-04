@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
+    logger.debug
     if params[:q]
       search_term = params[:q]
       @products = Product.where("name LIKE ?", "%#{search_term}")
@@ -15,6 +16,7 @@ class ProductsController < ApplicationController
   def show
     respond_with(@product)
     @comments = @product.comments.order("created_at DESC")
+    @comments = Comment.paginate(:page => params[:page])
   end
 
   def new
