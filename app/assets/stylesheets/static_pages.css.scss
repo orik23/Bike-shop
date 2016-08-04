@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
+h2 {
 	font-family: Helvetica;
 	color: grey;
 	text-aligment: center;
+	padding-left: 50px;
+
 }
 
 .featured-product img {
 	width: 100%;
+	display: inherit;
 	padding-left: 20px;
 }
