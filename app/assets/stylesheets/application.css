@@ -17,3 +17,6 @@
 nav {
 	
 }
+.nav>li>a {
+	color: white;
+}
