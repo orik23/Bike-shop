@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    logger.debug
   end
 
   def show

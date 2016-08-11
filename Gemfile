@@ -39,6 +39,7 @@ group :development, :test do
 	gem 'spork-rails'
 	gem 'guard-spork'
 	gem 'pry-rails'
+	gem 'byebug'
 end
 
 group :production do
