@@ -4,14 +4,12 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    logger.debug
     if params[:q]
       search_term = params[:q]
       @products = Product.where("name LIKE ?", "%#{search_term}")
     else
       @products = Product.all
     end
-    logger.debug
   end
 
   def show

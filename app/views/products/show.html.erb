@@ -3,36 +3,46 @@
 <div class="container">
 	<div class="row col-xs-6 col-md-4">
 		<p>
-		  <strong>Name:</strong>
-		  <%= @product.name %>
+		  <% cache @product do %>
+			  <strong>Name:</strong>
+			  <%= @product.name %>
+			<% end %>
 		</p>
 	</div>
 
 	<div class="row col-xs-6 col-md-4">
 		<p>
 			<strong>Description:</strong>
-		  <%= @product.description %>
+			<% cache @product do %>
+			  <%= @product.description %>
+			<% end %>
 		</p>
 	</div>
 
 	<div class="row img-responsive">
 		<p>
 		  <strong>Image url:</strong>
-		  <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
+		  <% cache @product do %>
+			  <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
+			<% end %>
 		</p>
 	</div>
 
 	<div class="row col-xs-6 col-md-4">
 		<p>
 			<strong>Colour:</strong>
-			<%= @product.colour %>
+			<% cache @product do %>
+				<%= @product.colour %>
+			<% end %>
 		</p>
 	</div>
 
 	<div class="row col-xs-6 col-md-4">
 		<p>
 			<strong>Price:</strong>
-			<%= @product.price %>
+			<% cache @product do %>
+				<%= @product.price %>
+			<% end %>
 		</p>
 	</div>
 
@@ -43,6 +53,14 @@
 		<% end %>
 	</div>
 </div>
+	
+	<div class="row">
+		<p>
+			<strong>Comments:</strong>
+			<%= render partial: "new_comment" %>
+ 			<%= @product.comments %>
+		</p>
+	</div>
 
 <p>Average Raiting: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
 <%= link_to 'Edit', edit_product_path(@product) %> |
