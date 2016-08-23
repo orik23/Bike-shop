@@ -18,6 +18,7 @@ nav {
 }
 .nav>li>a {
 	color: white;
+	padding-bottom: 0px;
 }
 
 .jumbotron {
