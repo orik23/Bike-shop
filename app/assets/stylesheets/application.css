@@ -16,6 +16,8 @@
 
 .navbar {
 	margin: 0px;
+	color: white;
+	font: black;
 }
 
 .nav>li>a {
