@@ -10,9 +10,7 @@
     <div class="carousel-inner" role="listbox">
       <% @products.each do |product| %>
   	    <div class="item<%= " active" if product == @products.first %>">
-          <div class="img-responsive">
-    	      <%= image_tag(product.image_url, class: "img-responsive col-xs-12 col-md-12") %>
-          </div>
+          <%= image_tag(product.image_url, class: "img-responsive col-xs-12 col-md-12 item container-fluid") %>
           <div class="carousel-caption">
   	        <p><%= product.name %></p>
   	      </div>
@@ -29,10 +27,12 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="row featured-product col-xs-6 col-md-4">   
-    <h2>Featured Product:</h2>
-    <%= image_tag(@featured_product.image_url, class: "img-responsive", id: "landing-img") %>
-    <h4><%= link_to(@featured_product.name, @featured_product) %></h4>
+  <div class="row featured-product">
+    <div class="col-xs-6 col-md-4">
+      <h2>Featured Product:</h2>
+      <%= image_tag(@featured_product.image_url, class: "img-responsive", id: "landing-img") %>
+      <h4><%= link_to(@featured_product.name, @featured_product) %></h4>
+    </div>
   </div>
 </div>
 
