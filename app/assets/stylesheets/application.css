@@ -20,18 +20,7 @@ nav {
 	color: white;
 }
 
-.jumbotron {
-	padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  color: white;
-}
 
-.carousel-inner {
-	margin: 30px auto 30px auto;
-	min-height: 350px;
-	max-height: 350px;
-}
 
 .carousel {
   margin-left: -15px;
