@@ -1,16 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-	<div class="row col-xs-6 col-md-4">
-		<p>
+	<div class="row">
+		<p id="title-product">
 		  <% cache @product do %>
 			  <strong>Name:</strong>
 			  <%= @product.name %>
 			<% end %>
 		</p>
 	</div>
-
-	<div class="row col-xs-6 col-md-4">
+	<div class="row">
 		<p>
 			<strong>Description:</strong>
 			<% cache @product do %>
@@ -18,17 +17,15 @@
 			<% end %>
 		</p>
 	</div>
-
 	<div class="row img-responsive">
 		<p>
-		  <strong>Image url:</strong>
+		  <strong>Image url:</strong><br>
 		  <% cache @product do %>
 			  <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
 			<% end %>
 		</p>
 	</div>
-
-	<div class="row col-xs-6 col-md-4">
+	<div class="row">
 		<p>
 			<strong>Colour:</strong>
 			<% cache @product do %>
@@ -36,8 +33,7 @@
 			<% end %>
 		</p>
 	</div>
-
-	<div class="row col-xs-6 col-md-4">
+	<div class="row">
 		<p>
 			<strong>Price:</strong>
 			<% cache @product do %>
@@ -45,15 +41,12 @@
 			<% end %>
 		</p>
 	</div>
-
-	<div class="row col-xs-6 col-md-4">
+	<div class="row">
 		<%= form_tag "/payments/create" do %>
   	<%= render partial: "shared/stripe_checkout_button" %>
   	<%= hidden_field_tag(:product_id, @product.id) %>
 		<% end %>
 	</div>
-</div>
-	
 	<div class="row">
 		<p>
 			<strong>Comments:</strong>
@@ -61,7 +54,10 @@
  			<%= @product.comments %>
 		</p>
 	</div>
+	<div class="row">
+		<p>Average Raiting: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+		<%= link_to 'Edit', edit_product_path(@product) %> |
+		<%= link_to 'Back', products_path %>
+	</div>
+</div>
 
-<p>Average Raiting: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
