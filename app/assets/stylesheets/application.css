@@ -20,6 +20,13 @@ nav {
 	color: white;
 }
 
+.jumbotron {
+	padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: white;
+}
+
 
 
 .carousel {
