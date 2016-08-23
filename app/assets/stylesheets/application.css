@@ -14,8 +14,10 @@
  *= require_self
  */
 
-nav {
+.navbar {
+	margin: 0px;
 }
+
 .nav>li>a {
 	color: white;
 	padding-bottom: 0px;
