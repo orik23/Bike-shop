@@ -47,9 +47,10 @@
   	<%= hidden_field_tag(:product_id, @product.id) %>
 		<% end %>
 	</div>
+	<br>
 	<div class="row">
 		<p>
-			<strong>Comments:</strong>
+			<strong>Comments</strong>
 			<%= render partial: "new_comment" %>
  			<%= @product.comments %>
 		</p>

@@ -1,16 +1,20 @@
-<% if signed_in? %>
-	<h4>Add a review:</h4>
-	<%= form_for([@product, @product.comments.build], remote: true) do |f| %>
-	  <p>
-	    <%= f.label :body, "Comments" %><br>
-	    <%= f.text_area :body %>
-	  </p>
-	  <p>
-	  	<%= f.label :rating %><br>
-	  	<%= f.text_field :rating, class: "rating" %>
-	  </p>
-	  <p>
-	    <%= f.submit "Submit" %>
-	  </p>
+<div>
+	<% if signed_in? %>
+		<!-- remote: true is for AJAX -->
+		<%= form_for([@product, @product.comments.build], remote: true) do |f| %>
+		  <p>
+		    <%= f.label :body, "Your review:" %><br>
+		    <%= f.text_area :body %>
+		  </p>
+		  <div>
+		  	<%= f.label :rating, "Your rating:" %>				<!--  f.text_field :rating, class: "rating form-control"
+        The jquery plugin 'raty' only needs a class named rating in order to work -->
+        <div class="rating"></div>
+		  </div>
+		  <br>
+		  <p>
+		    <%= f.submit "Submit" %>
+		  </p>
+		<% end %>
 	<% end %>
-<% end %>
+</div>
