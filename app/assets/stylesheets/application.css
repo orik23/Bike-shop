@@ -20,7 +20,6 @@
 
 .nav>li>a {
 	color: white;
-	padding-bottom: 0px;
 }
 
 .jumbotron {
@@ -59,3 +58,9 @@ h4 {
 	background-color: white;
 	margin: 0px;
 }
+
+.navbar-left {
+	text-align: left;
+}
+
+

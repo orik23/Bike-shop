@@ -18,12 +18,9 @@
 		</p>
 	</div>
 	<div class="row img-responsive">
-		<p>
-		  <strong>Image url:</strong><br>
-		  <% cache @product do %>
-			  <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
-			<% end %>
-		</p>
+		<% cache @product do %>
+	  	<%= image_tag(@product.image_url, width: "350", class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
+		<% end %>
 	</div>
 	<div class="row">
 		<p>
@@ -37,14 +34,17 @@
 		<p>
 			<strong>Price:</strong>
 			<% cache @product do %>
-				<%= @product.price %>
+				<%= number_to_currency(@product.price, unit:"€") %>
 			<% end %>
 		</p>
 	</div>
 	<div class="row">
+		<p>Average Raiting: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
+	</div>
+	<div class="row">
 		<%= form_tag "/payments/create" do %>
-  	<%= render partial: "shared/stripe_checkout_button" %>
-  	<%= hidden_field_tag(:product_id, @product.id) %>
+  		<%= render partial: "shared/stripe_checkout_button" %>
+  		<%= hidden_field_tag(:product_id, @product.id) %>
 		<% end %>
 	</div>
 	<br>
@@ -55,10 +55,20 @@
  			<%= @product.comments %>
 		</p>
 	</div>
-	<div class="row">
-		<p>Average Raiting: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-		<%= link_to 'Edit', edit_product_path(@product) %> |
-		<%= link_to 'Back', products_path %>
-	</div>
+	<% if signed_in? && current_user.admin? %>
+    <p><%= link_to 'Edit', edit_product_path(@product)%></p>
+  <% end %>
+	<p><%= link_to 'Back', products_path %></p>
+
+  <div class="row">
+    <!-- alert for new comment (action cable) -->
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+    <!-- Rendering partials -->
+    <%= render 'comments' %>
+    <%= render 'new_comment'%>
+	</div><!-- /row -->
+	<script>
+    $('#zoom_01').elevateZoom();
+  </script>
 </div>
 
