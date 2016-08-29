@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @comments = @product.comments.paginate(:page => params[:page])
+    @comments = @product.comments.paginate(:page => params[:page], per_page: 5)
     respond_with(@product)
   end
 
