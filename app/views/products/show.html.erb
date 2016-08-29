@@ -52,7 +52,6 @@
 		<p>
 			<strong>Comments</strong>
 			<%= render partial: "new_comment" %>
- 			<%= @product.comments %>
 		</p>
 	</div>
 	<% if signed_in? %>
@@ -66,7 +65,6 @@
     <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
     <!-- Rendering partials -->
     <%= render 'comments' %>
-    <%= render 'new_comment'%>
 	</div><!-- /row -->
 	<script>
     $('#zoom_01').elevateZoom();
