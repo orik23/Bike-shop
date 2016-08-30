@@ -43,26 +43,28 @@
   			<%= hidden_field_tag(:product_id, @product.id) %>
 			<% end %>
 		</div>
-		<br>
-		<div class="row">
-			<p>
-				<strong>Comments</strong>
-				<%= render partial: "new_comment" %>
-			</p>
-		</div>
-		<% if signed_in? %>
-			<!-- && current_user.admin? -->
-    	<p><%= link_to 'Edit', edit_product_path(@product)%></p>
-  	<% end %>
-		<p><%= link_to 'Back', products_path %></p>
-
-  	<div class="row">
-   		<!-- alert for new comment (action cable) -->
-   		<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-    	<!-- Rendering partials -->
-    	<%= render 'comments' %>
-		</div><!-- /row -->
 	<% end %>
+
+	<br>
+	<div class="row">
+		<p>
+			<strong>Comments</strong>
+			<%= render partial: "new_comment" %>
+		</p>
+	</div>
+	<% if signed_in? %>
+		<!-- && current_user.admin? -->
+    <p><%= link_to 'Edit', edit_product_path(@product)%></p>
+  <% end %>
+	<p><%= link_to 'Back', products_path %></p>
+
+  <div class="row">
+   	<!-- alert for new comment (action cable) -->
+   	<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+   	<!-- Rendering partials -->
+   	<%= render 'comments' %>
+  </div><!-- /row -->
+	
 	<script>
     $('#zoom_01').elevateZoom();
  	</script>
