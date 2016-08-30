@@ -1,78 +1,70 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-	<div class="row">
-		<p id="title-product">
-		  <% cache @product do %>
-			  <strong>Name:</strong>
-			  <%= @product.name %>
-			<% end %>
-		</p>
-	</div>
-	<br>
-	<div class="row">
-		<p>
-			<strong>Description:</strong>
-			<% cache @product do %>
-			  <%= @product.description %>
-			<% end %>
-		</p>
-	</div>
-	<br>
-	<div class="row img-responsive">
-		<% cache @product do %>
+	<% cache @product do %>
+		<div class="row">
+			<p id="title-product">
+				<strong>Name:</strong>
+				<%= @product.name %>
+			</p>
+		</div>
+		<br>
+		<div class="row">
+			<p>
+				<strong>Description:</strong>
+		  	<%= @product.description %>
+			</p>
+		</div>
+		<br>
+		<div class="row img-responsive">
 	  	<%= image_tag(@product.image_url, width: "350", class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
-		<% end %>
-	</div>
-	<br>
-	<div class="row">
-		<p>
-			<strong>Colour:</strong>
-			<% cache @product do %>
-				<%= @product.colour %>
-			<% end %>
-		</p>
-	</div>
-	<br>
-	<div class="row">
-		<p>
-			<strong>Price:</strong>
-			<% cache @product do %>
+		</div>
+		<br>
+		<div class="row">
+			<p>
+				<strong>Colour:</strong>
+					<%= @product.colour %>
+			</p>
+		</div>
+		<br>
+		<div class="row">
+			<p>
+				<strong>Price:</strong>
 				<%= number_to_currency(@product.price, unit:"€") %>
+			</p>
+		</div>
+		<br>
+		<div class="row">
+			<p>Average Raiting: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div></p>
+		</div>
+		<div class="row">
+			<%= form_tag "/payments/create" do %>
+  			<%= render partial: "shared/stripe_checkout_button" %>
+  			<%= hidden_field_tag(:product_id, @product.id) %>
 			<% end %>
-		</p>
-	</div>
-	<br>
-	<div class="row">
-		<p>Average Raiting: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
-	</div>
-	<div class="row">
-		<%= form_tag "/payments/create" do %>
-  		<%= render partial: "shared/stripe_checkout_button" %>
-  		<%= hidden_field_tag(:product_id, @product.id) %>
-		<% end %>
-	</div>
-	<br>
-	<div class="row">
-		<p>
-			<strong>Comments</strong>
-			<%= render partial: "new_comment" %>
-		</p>
-	</div>
-	<% if signed_in? %>
-		<!-- && current_user.admin? -->
-    <p><%= link_to 'Edit', edit_product_path(@product)%></p>
-  <% end %>
-	<p><%= link_to 'Back', products_path %></p>
+		</div>
+		<br>
+		<div class="row">
+			<p>
+				<strong>Comments</strong>
+				<%= render partial: "new_comment" %>
+			</p>
+		</div>
+		<% if signed_in? %>
+			<!-- && current_user.admin? -->
+    	<p><%= link_to 'Edit', edit_product_path(@product)%></p>
+  	<% end %>
+		<p><%= link_to 'Back', products_path %></p>
 
-  <div class="row">
-    <!-- alert for new comment (action cable) -->
-    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-    <!-- Rendering partials -->
-    <%= render 'comments' %>
-	</div><!-- /row -->
+  	<div class="row">
+   		<!-- alert for new comment (action cable) -->
+   		<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+    	<!-- Rendering partials -->
+    	<%= render 'comments' %>
+		</div><!-- /row -->
+	<% end %>
 	<script>
     $('#zoom_01').elevateZoom();
-  </script>
+ 	</script>
 </div>
 
