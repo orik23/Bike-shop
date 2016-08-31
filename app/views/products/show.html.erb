@@ -2,7 +2,7 @@
 
 <div class="container">
 	<% cache @product do %>
-		<div class="row">
+		<div class="row data-product-id="<%= @product.id %> ">
 			<p id="title-product">
 				<strong>Name:</strong>
 				<%= @product.name %>
