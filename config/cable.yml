@@ -1,5 +1,5 @@
 development:
-  adapter: async
+  adapter: asy.nc
 
 test:
   adapter: async
