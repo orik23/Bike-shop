@@ -12,13 +12,12 @@ class StaticPagesController < ApplicationController
   @email = params[:email]
   @message = params[:message]
   ActionMailer::Base.mail(:from => @email,
-      :to => 'your-email@example.com',
+      :to => 'martafarre@posteo.net',
       :subject => "A new contact form message from #{@name}",
       :body => @message).deliver_now
   end
 
   def landing_page
-  	@featured_product = Product.first
   	@products = Product.limit(3)
   end
 end

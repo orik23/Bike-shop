@@ -8,7 +8,7 @@ def create
 	begin
 		charge = Stripe::Charge.create(
 			:amount => (@product.price*100).to_i, # amount in cents, again
-			:currency => "usd",
+			:currency => "eur",
 			:source => token,
 			:description => params[:stripeEmail]
 		)
