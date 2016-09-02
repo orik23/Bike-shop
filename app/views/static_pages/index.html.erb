@@ -5,3 +5,13 @@
 
 
 <%= image_tag("bike-classic.gif", class: "img-responsive", size: "200") %>
+
+<section class="container anchor" id="index-page">
+
+  <% cache do %>
+    <h1>Welcome to Biking Around Berlin</h1>
+    <h2>Here you can find your new love partner that will accompany you everywhere you want.</h2>
+    <%= image_tag("racebike.jpg", class: "home-img img-responsive") %>
+  <% end %><!-- cache -->
+  
+</section>

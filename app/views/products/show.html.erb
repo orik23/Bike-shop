@@ -1,73 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container show-products">
 	<% cache @product do %>
 		<div class="row data-product-id="<%= @product.id %> ">
-			<p id="title-product">
-				<strong>Name:</strong>
-				<%= @product.name %>
-			</p>
-		</div>
-		<br>
-		<div class="row">
-			<p>
-				<strong>Description:</strong>
-		  	<%= @product.description %>
-			</p>
-		</div>
-		<br>
-		<div class="row img-responsive">
-	  	<%= image_tag(@product.image_url, width: "350", class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
-		</div>
-		<br>
-		<div class="row">
-			<p>
-				<strong>Colour:</strong>
-					<%= @product.colour %>
-			</p>
-		</div>
-		<br>
-		<div class="row">
-			<p>
-				<strong>Price:</strong>
-				<%= number_to_currency(@product.price, unit:"€") %>
-			</p>
-		</div>
-		<br>
-		<div class="row">
-			<p>Average Raiting: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div></p>
-		</div>
-		<div class="row">
-			<%= form_tag "/payments/create" do %>
-  			<%= render partial: "shared/stripe_checkout_button" %>
-  			<%= hidden_field_tag(:product_id, @product.id) %>
-			<% end %>
-		</div>
-	<% end %>
+			<div class="col-sm-12 col-md-6">
+				<h3 id="title-product"><%= @product.name %></h3>
+				<div class="row img-responsive">
+	  			<%= image_tag(@product.image_url, width: "350", class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
+				</div>
+				<p><strong>Colour:</strong>
+				<%= @product.colour %></p>
+				<p><%= @product.description %></p>
+				<p>
+					<strong>Price:</strong>
+					<%= number_to_currency(@product.price, unit:"€") %>
+				</p>
+				<p><strong>Average Raiting:</strong>
+				<br>
+				<div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div></p>
+				<br>
+				<%= form_tag "/payments/create" do %>
+  				<%= render partial: "shared/stripe_checkout_button" %>
+  				<%= hidden_field_tag(:product_id, @product.id) %>
+				<% end %>
+ 				<br>
+        <% if signed_in? %>
+				<!-- && current_user.admin? -->
+    			<p><%= link_to 'Edit', edit_product_path(@product)%></p>
+  			<% end %>
+				<p><%= link_to 'Back', products_path %></p>
+      </div><!-- /col -->
+    </div><!-- /row -->
+  <% end %><!-- /cache -->
 
-	<br>
 	<div class="row">
-		<p>
-			<strong>Comments</strong>
-			<%= render partial: "new_comment" %>
-		</p>
-	</div>
-	<% if signed_in? %>
-		<!-- && current_user.admin? -->
-    <p><%= link_to 'Edit', edit_product_path(@product)%></p>
-  <% end %>
-	<p><%= link_to 'Back', products_path %></p>
+    <!-- ActionCable alert for new comment -->
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 
-  <div class="row">
-   	<!-- alert for new comment (action cable) -->
-   	<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-   	<!-- Rendering partials -->
-   	<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-   	<%= render 'comments' %>
+    <!-- Rendering partials -->
+    <div class="product-reviews-wrapper">
+      <%= render 'comments' %>
+    </div>
+    <%= render 'new_comment'%>
   </div><!-- /row -->
-	
-	<script>
-    $('#zoom_01').elevateZoom();
- 	</script>
-</div>
 
+  <!-- elevateZoom - A jQuery image zoom plugin -->
+  <script>
+    $('#zoom_01').elevateZoom();
+  </script>
+
+</div><!-- /container-->

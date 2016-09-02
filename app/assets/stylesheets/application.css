@@ -14,6 +14,14 @@
  *= require_self
  */
 
+/* ================= TYPOGRAPHY =============*/
+<link href='https://fonts.googleapis.com/css?family=Slabo27px' rel='stylesheet' type='text/css'>
+
+* {
+  font-family: Futura, Helvetica, Arial, Sans-Serif;
+}
+
+/* ================= NAVBAR =============*/
 .navbar {
 	margin: 0px;
 }
@@ -22,6 +30,11 @@
 	color: white;
 }
 
+.navbar-left {
+	text-align: left;
+}
+
+/* ================= CAROUSEL LandingPage =============*/
 .jumbotron {
 	padding-top: 0px;
   padding-bottom: 0px;
@@ -34,22 +47,48 @@
 	text-align: center;
 }
 
+
 #car {
 	display: inline-block;
   min-height: 350px;
   max-height: 350px;
 }
 
-.right.carousel-control, .left.carousel-control {
-  opacity: 0;
+.right.carousel-control {
+	opacity: 0;
+  padding: 50px;
+  left: auto;
+  right: 190px;
+  }
+
+.left.carousel-control {
+	opacity: 0;
   filter:alpha(opacity=0); /* IE support */
+  padding: 50px;
+  right: auto;
+  left: 190px;
 }
 
+.text {
+	color: black;
+	padding-left: 50px;
+	padding-bottom: 80px;
+	text-align: center;
+}
+.text>h5 {
+	margin-top: 0px;
+}
+.text>h1 {
+	color: black;
+}
+/* ============== FOOTER =============*/
 footer {
 	text-align: center;
 	margin-bottom: 15px;
 }
 
+
+/* =================  =============*/
 h4 {
 	padding-top: 10px;
 }
@@ -59,8 +98,6 @@ h4 {
 	margin: 0px;
 }
 
-.navbar-left {
-	text-align: left;
-}
+
 
 

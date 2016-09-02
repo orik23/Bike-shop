@@ -1,13 +1,16 @@
 <header>
-	<h1>Listing products</h1>
+	<h1>Products</h1>
 </header>
 
 <div class="container-fluid">
   <div class="row">
   	<% cache(cache_key_for_products) do %>
-	    <%= render @products %>
+  		<% @products.each do |product| %>
+        <%= render partial: 'shared/product', locals: {product: product} %>
   	<% end %>
-  	<%= link_to 'New Product', new_product_path %>
+  	<% end %>
+  	<br>
+  	<br>
+  	<%= link_to 'Create New Product', new_product_path, class:"btn btn-default", id: "btn-create-product" %>
   </div>
 </div>
-

@@ -1,0 +1,9 @@
+<% cache product do %>
+	<div class="col-sm-12 col-md-4">
+		<%= image_tag(product.image_url, class: "img-responsive") %>
+		<h3><%= link_to product.name, product %></h3>
+		<p><%= number_to_currency(product.price, unit:"€") %></p>
+    <p><%= product.colour %></p>
+    <p><%= product.description %></p>
+  </div>
+<% end %><!-- /cache -->
