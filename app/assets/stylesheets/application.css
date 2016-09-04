@@ -34,6 +34,14 @@
 	text-align: left;
 }
 
+#btn-login {
+	margin-top: 5px;
+}
+
+#btn-search {
+	margin-left: 60px;
+}
+
 /* ================= CAROUSEL LandingPage =============*/
 .jumbotron {
 	padding-top: 0px;

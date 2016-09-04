@@ -34,7 +34,7 @@
           </ul>
           <%= render partial: "layouts/nav" %>
           <%= render partial: "layouts/head" %>
-          <ul class="nav pull-right">
+          <ul class="nav pull-right" id="btn-login">
             <li>
             <% if user_signed_in? %>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
