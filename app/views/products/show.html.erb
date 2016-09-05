@@ -24,14 +24,15 @@
   				<%= hidden_field_tag(:product_id, @product.id) %>
 				<% end %>
  				<br>
-        <% if signed_in? %>
-				<!-- && current_user.admin? -->
-    			<p><%= link_to 'Edit', edit_product_path(@product)%></p>
-  			<% end %>
-				<p><%= link_to 'Back', products_path %></p>
-      </div><!-- /col -->
+ 	<% end %><!-- /cache -->
+
+  <% if signed_in? %>
+	<!-- && current_user.admin? -->
+ 		<p><%= link_to 'Edit', edit_product_path(@product)%></p>
+  <% end %>
+	<p><%= link_to 'Back', products_path %></p>
+    </div><!-- /col -->
     </div><!-- /row -->
-  <% end %><!-- /cache -->
 
 	<div class="row">
     <!-- ActionCable alert for new comment -->
