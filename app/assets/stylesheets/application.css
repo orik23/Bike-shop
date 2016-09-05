@@ -15,7 +15,6 @@
  */
 
 /* ================= TYPOGRAPHY =============*/
-<link href='https://fonts.googleapis.com/css?family=Slabo27px' rel='stylesheet' type='text/css'>
 
 * {
   font-family: Futura, Helvetica, Arial, Sans-Serif;
@@ -36,10 +35,6 @@
 
 #btn-login {
 	margin-top: 5px;
-}
-
-#btn-search {
-	margin-left: 60px;
 }
 
 /* ================= CAROUSEL LandingPage =============*/
